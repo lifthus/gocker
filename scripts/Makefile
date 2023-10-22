@@ -31,7 +31,7 @@ image:
 .PHONY:image
 
 container:
-	docker run -dp 0.0.0.0:9595:9595 lifthus/gocker:${TAG}
+	docker run -p 0.0.0.0:9595:9595 lifthus/gocker:${TAG}
 .PHONY:container
 
 # e.g. make tag TAG=v0.0.1
