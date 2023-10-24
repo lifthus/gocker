@@ -1,0 +1,22 @@
+services:
+  app: # this name automatically becomes a network alias.
+    image: golang:1.21.3-bullseye
+    command: sh -c "go build -o gocker cmd/gocker/main.go && ./gocker"
+    ports: 
+      - 127.0.0.1:9595:9595
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - ENV1="env 1 gotten"
+
+#   mysql:
+#     image: mysql:8.0
+#     volumes:
+#       - gocker-mysql-data:/var/lib/mysql
+#     environment:
+#       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
+#       MYSQL_DATABASE: gocker
+
+# volumes:
+#   gocker-mysql-data:
